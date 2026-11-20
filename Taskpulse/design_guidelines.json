@@ -1,0 +1,537 @@
+{
+  "app_name": "TaskPulse Work Oversight & Team Operations Hub",
+  "app_type": "dashboard (saas_app)",
+  "theme": {
+    "default_mode": "dark",
+    "theme_toggle": true,
+    "archetype": "ARCHETYPE 4: SWISS & HIGH-CONTRAST + TACTICAL PRECISION",
+    "description": "High-contrast tactical operations hub with charcoal-obsidian depths, crisp 1px borders, and signal accents (amber for warning/due soon, crimson for critical/overdue, emerald for completed, and vibrant electric indigo/cobalt for primary actions). Cardless & dense layout with high scannability."
+  },
+  "typography": {
+    "font_family_heading": "Plus Jakarta Sans, sans-serif",
+    "font_family_body": "DM Sans, sans-serif",
+    "font_family_mono": "JetBrains Mono, monospace",
+    "font_import": "@import \"@fontsource-variable/plus-jakarta-sans\";\n@import \"@fontsource-variable/dm-sans\";\n@import \"@fontsource-variable/jetbrains-mono\";",
+    "scale_px": {
+      "display": 48,
+      "h1": 36,
+      "h2": 28,
+      "h3": 20,
+      "body": 16,
+      "caption": 14
+    },
+    "rules": {
+      "headings": "font-heading font-bold tracking-tight text-slate-100",
+      "subheadings": "font-sans font-medium text-slate-400 text-sm tracking-normal",
+      "overlines": "font-mono uppercase text-xs tracking-[0.18em] text-slate-400 font-semibold",
+      "metrics": "font-heading font-extrabold tracking-tight text-2xl lg:text-3xl text-white",
+      "badges_and_pills": "font-mono text-xs font-semibold tracking-wider"
+    }
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#0B0F17",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "sidebar",
+        "kind": "solid",
+        "bg": "#070A10",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#818CF8",
+        "roles": {
+          "border": "#1E293B",
+          "active_tab": "#4F46E5",
+          "active_text": "#FFFFFF",
+          "hover_bg": "#111827",
+          "hover_text": "#FFFFFF"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#111827",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "border": "#1F2937",
+          "link": "#6366F1",
+          "error": "#F87171",
+          "success": "#34D399",
+          "warning": "#FBBF24"
+        }
+      },
+      {
+        "name": "panel_secondary",
+        "kind": "solid",
+        "bg": "#1E293B",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#CBD5E1",
+        "roles": {
+          "border": "#334155"
+        }
+      },
+      {
+        "name": "inverse",
+        "kind": "solid",
+        "bg": "#F8FAFC",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#475569"
+      },
+      {
+        "name": "alert_critical",
+        "kind": "solid",
+        "bg": "#2A1215",
+        "on_bg": "#FECDD3",
+        "on_bg_muted": "#FDA4AF",
+        "roles": {
+          "border": "#E11D48",
+          "badge_bg": "#E11D48",
+          "badge_text": "#FFFFFF"
+        }
+      },
+      {
+        "name": "alert_warning",
+        "kind": "solid",
+        "bg": "#261A05",
+        "on_bg": "#FEF3C7",
+        "on_bg_muted": "#FDE68A",
+        "roles": {
+          "border": "#D97706",
+          "badge_bg": "#D97706",
+          "badge_text": "#FFFFFF"
+        }
+      },
+      {
+        "name": "alert_info",
+        "kind": "solid",
+        "bg": "#0F1E36",
+        "on_bg": "#DBEAFE",
+        "on_bg_muted": "#93C5FD",
+        "roles": {
+          "border": "#2563EB",
+          "badge_bg": "#2563EB",
+          "badge_text": "#FFFFFF"
+        }
+      },
+      {
+        "name": "alert_success",
+        "kind": "solid",
+        "bg": "#062319",
+        "on_bg": "#D1FAE5",
+        "on_bg_muted": "#6EE7B7",
+        "roles": {
+          "border": "#059669",
+          "badge_bg": "#059669",
+          "badge_text": "#FFFFFF"
+        }
+      },
+      {
+        "name": "glass_header",
+        "kind": "glass",
+        "contrast_against": "#0B0F17",
+        "guarantee": "backdrop-blur-xl bg-[#0B0F17]/85 border-b border-[#1E293B]",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8"
+      }
+    ],
+    "accent": "#4F46E5",
+    "on_accent": "#FFFFFF",
+    "accent_hover": "#4338CA",
+    "priority_palette": {
+      "critical": {
+        "bg": "#E11D48",
+        "text": "#FFFFFF",
+        "subtle_bg": "#2A1215",
+        "border": "#E11D48"
+      },
+      "high": {
+        "bg": "#EA580C",
+        "text": "#FFFFFF",
+        "subtle_bg": "#2B160B",
+        "border": "#EA580C"
+      },
+      "medium": {
+        "bg": "#D97706",
+        "text": "#FFFFFF",
+        "subtle_bg": "#261A05",
+        "border": "#D97706"
+      },
+      "low": {
+        "bg": "#0D9488",
+        "text": "#FFFFFF",
+        "subtle_bg": "#082622",
+        "border": "#0D9488"
+      }
+    },
+    "status_palette": {
+      "todo": {
+        "badge_bg": "#334155",
+        "badge_text": "#F8FAFC",
+        "column_header": "#64748B"
+      },
+      "in_progress": {
+        "badge_bg": "#2563EB",
+        "badge_text": "#FFFFFF",
+        "column_header": "#3B82F6"
+      },
+      "review": {
+        "badge_bg": "#7C3AED",
+        "badge_text": "#FFFFFF",
+        "column_header": "#8B5CF6"
+      },
+      "done": {
+        "badge_bg": "#059669",
+        "badge_text": "#FFFFFF",
+        "column_header": "#10B981"
+      }
+    }
+  },
+  "entry_surfaces": {
+    "/": "split hero overview dashboard — top executive stat bar, priority triage panel & workload charts middle, live activity feed & quick action controls bottom",
+    "/login": "branded split auth view — left dark operations panel with live team oversight preview & demo role switchers (Manager vs Member), right clean credentials form"
+  },
+  "navigation_and_layout": {
+    "shell_pattern": "Left collapsible sidebar + sticky glass header with search, active role badge (Manager / Team Member), quick task creation button, role toggle, notification bell with badge counter + profile dropdown",
+    "sidebar_items": [
+      {
+        "label": "Overview Hub",
+        "route": "/",
+        "icon": "LayoutDashboard",
+        "badge": "Live"
+      },
+      {
+        "label": "Kanban Board",
+        "route": "/kanban",
+        "icon": "KanbanSquare",
+        "badge": "4 Columns"
+      },
+      {
+        "label": "Task Manager",
+        "route": "/tasks",
+        "icon": "CheckSquare",
+        "badge": null
+      },
+      {
+        "label": "Team Members",
+        "route": "/team",
+        "icon": "Users",
+        "badge": null
+      },
+      {
+        "label": "Workload & Reports",
+        "route": "/analytics",
+        "icon": "BarChart3",
+        "badge": null
+      },
+      {
+        "label": "Activity Stream",
+        "route": "/activity",
+        "icon": "History",
+        "badge": null
+      }
+    ],
+    "header_features": [
+      "Role Switcher pill (Manager / Team Member Alex / Team Member Maya / Team Member Carlos)",
+      "Global Search input for instant task or member filtering",
+      "Priority Alert summary trigger (Overdue count + Urgent tasks count)",
+      "Notification Bell with animated unread badge + rich popover list with 'Mark all as read' & direct click-to-task action",
+      "Primary Action: '+ Assign Task' (Manager only) or '+ Log Progress' (Member)"
+    ]
+  },
+  "dashboard_and_features_architecture": {
+    "executive_stat_cards": [
+      {
+        "title": "Total Assigned Tasks",
+        "id": "total-tasks",
+        "icon": "Layers",
+        "stat": "28",
+        "change": "+4 this week",
+        "variant": "neutral"
+      },
+      {
+        "title": "Critical & High Priority",
+        "id": "critical-tasks",
+        "icon": "Flame",
+        "stat": "7",
+        "change": "3 require manager sign-off",
+        "variant": "critical"
+      },
+      {
+        "title": "Overdue & Due Soon",
+        "id": "due-alerts",
+        "icon": "AlertTriangle",
+        "stat": "5",
+        "change": "2 overdue, 3 due within 24h",
+        "variant": "warning"
+      },
+      {
+        "title": "Avg Team Progress",
+        "id": "team-progress",
+        "icon": "TrendingUp",
+        "stat": "68.4%",
+        "change": "+12% vs last sprint",
+        "variant": "success"
+      }
+    ],
+    "priority_triage_panel": {
+      "title": "Immediate Priority Action Center",
+      "description": "Surfaces Overdue, Due Soon (<24h), and Critical priority tasks requiring immediate attention",
+      "filters": ["All Priority Alerts", "Overdue", "Due Today", "Critical Blocking", "Needs Review"],
+      "item_features": [
+        "Task Title & Project Tag",
+        "Assignee Avatar + Name",
+        "Due Date countdown with relative color coding (e.g., '2 days ago' in red, 'in 4h' in amber)",
+        "Progress bar with % tooltip",
+        "Action buttons: 'Quick Nudge', 'Update %', 'View Details'"
+      ]
+    },
+    "workload_charts": {
+      "component": "Recharts BarChart & RadialProgress",
+      "charts": [
+        {
+          "name": "Team Workload & Completion",
+          "type": "BarChart",
+          "description": "Stacked or grouped bars showing Tasks Assigned vs Tasks Completed vs Overdue per team member",
+          "colors": ["#4F46E5", "#10B981", "#E11D48"]
+        },
+        {
+          "name": "Status Distribution",
+          "type": "PieChart / Donut",
+          "description": "To Do (slate), In Progress (blue), In Review (purple), Done (emerald)"
+        }
+      ]
+    },
+    "kanban_board": {
+      "columns": [
+        { "id": "todo", "title": "To Do", "accent": "#64748B" },
+        { "id": "in_progress", "title": "In Progress", "accent": "#3B82F6" },
+        { "id": "review", "title": "In Review", "accent": "#8B5CF6" },
+        { "id": "done", "title": "Completed", "accent": "#10B981" }
+      ],
+      "card_capabilities": [
+        "Priority badge with colored dot (Critical, High, Medium, Low)",
+        "Title and brief description",
+        "Interactive Progress Slider or quick percentage step buttons (0%, 25%, 50%, 75%, 100%)",
+        "Assignee chip with avatar and workload badge",
+        "Due date badge with alert indicators (Overdue = red pulse)",
+        "Latest progress note snippet and update count",
+        "Quick action menu: Change Status, Assign, Edit, Delete, Log Note"
+      ]
+    },
+    "task_detail_and_update_dialog": {
+      "features": [
+        "Full task metadata (Title, Description, Priority, Due Date, Created Date, Manager, Assignee)",
+        "Interactive Progress Slider with live percentage readout (0-100%)",
+        "Status selector with visual confirmation badge",
+        "Progress Update Notes Timeline: chronological feed of comments, updates, blockers, and % bumps with timestamp & author",
+        "Add Note Form: text area + optional tag ('Milestone', 'Blocker', 'Progress Note', 'Review Request') + submit button",
+        "Notification trigger: Manager is automatically alerted when a member updates progress or flags a blocker"
+      ]
+    },
+    "team_oversight_page": {
+      "member_cards": [
+        "Avatar + Name + Role + Email",
+        "Active Workload count (e.g. 5 active, 2 critical)",
+        "Overall completion rate progress ring",
+        "Overdue task count with badge alert",
+        "Direct action: 'Assign New Task', 'View Member Board', 'Send Nudge Alert'",
+        "List of currently assigned tasks with inline progress sliders"
+      ]
+    }
+  },
+  "motion_and_interactions": {
+    "library": "motion/react",
+    "transitions": {
+      "card_hover": "transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg hover:border-slate-600",
+      "button_press": "active:scale-[0.98] transition-transform duration-100",
+      "modal_backdrop": "animate-in fade-in duration-200",
+      "dropdown_popover": "animate-in fade-in-0 zoom-in-95 duration-150"
+    },
+    "reduced_motion": "Wrap custom motion components in prefers-reduced-motion queries or use standard Tailwind CSS transitions."
+  },
+  "accessibility_requirements": {
+    "wcag_compliance": "WCAG AA (4.5:1 minimum contrast on all text surfaces)",
+    "aria_labels": "All icon-only buttons (notification bell, search clear, filter reset, quick action menus) must have descriptive aria-label attributes",
+    "data_testid_convention": "All interactive elements, buttons, tabs, modal triggers, inputs, and priority alerts MUST include data-testid (e.g. data-testid='create-task-button', data-testid='priority-alert-overdue-chip', data-testid='task-progress-slider-123')"
+  },
+  "preloaded_sample_data": {
+    "team_members": [
+      {
+        "id": "usr-1",
+        "name": "Sarah Chen",
+        "role": "Engineering Manager",
+        "email": "sarah.chen@taskpulse.io",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+        "active_tasks": 3,
+        "completed_tasks": 14,
+        "overdue_tasks": 0,
+        "is_manager": true
+      },
+      {
+        "id": "usr-2",
+        "name": "Alex Rivera",
+        "role": "Senior Fullstack Engineer",
+        "email": "alex.rivera@taskpulse.io",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+        "active_tasks": 6,
+        "completed_tasks": 18,
+        "overdue_tasks": 1,
+        "is_manager": false
+      },
+      {
+        "id": "usr-3",
+        "name": "Maya Patel",
+        "role": "UI/UX Product Designer",
+        "email": "maya.patel@taskpulse.io",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+        "active_tasks": 4,
+        "completed_tasks": 12,
+        "overdue_tasks": 1,
+        "is_manager": false
+      },
+      {
+        "id": "usr-4",
+        "name": "Carlos Gomez",
+        "role": "Backend & Cloud Architect",
+        "email": "carlos.gomez@taskpulse.io",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+        "active_tasks": 5,
+        "completed_tasks": 15,
+        "overdue_tasks": 0,
+        "is_manager": false
+      },
+      {
+        "id": "usr-5",
+        "name": "Elena Rostova",
+        "role": "QA & Reliability Engineer",
+        "email": "elena.rostova@taskpulse.io",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+        "active_tasks": 3,
+        "completed_tasks": 9,
+        "overdue_tasks": 0,
+        "is_manager": false
+      }
+    ],
+    "sample_tasks": [
+      {
+        "id": "task-101",
+        "title": "Migrate Payment Gateway to Stripe Elements v4",
+        "description": "Upgrade legacy payment forms to modern Stripe Elements with 3DS2 support and webhook verification.",
+        "assignee_id": "usr-2",
+        "assignee_name": "Alex Rivera",
+        "priority": "Critical",
+        "status": "In progress",
+        "progress": 75,
+        "due_date": "2026-08-18",
+        "category": "Backend / FinTech",
+        "created_by": "Sarah Chen",
+        "updates": [
+          {"author": "Alex Rivera", "timestamp": "2026-08-16 14:30", "note": "Stripe webhook handlers verified in sandbox. Finalizing refund tests.", "progress": 75},
+          {"author": "Sarah Chen", "timestamp": "2026-08-15 10:00", "note": "High priority: release scheduled for sprint end.", "progress": 50}
+        ]
+      },
+      {
+        "id": "task-102",
+        "title": "Design System Token Sync & Dark Mode Audit",
+        "description": "Align Figma component tokens with Tailwind v4 CSS variables across all modal and dropdown surfaces.",
+        "assignee_id": "usr-3",
+        "assignee_name": "Maya Patel",
+        "priority": "High",
+        "status": "In progress",
+        "progress": 60,
+        "due_date": "2026-08-19",
+        "category": "Design & UI",
+        "created_by": "Sarah Chen",
+        "updates": [
+          {"author": "Maya Patel", "timestamp": "2026-08-16 11:20", "note": "Base-UI color contrast checks completed. Reviewing input focus states.", "progress": 60}
+        ]
+      },
+      {
+        "id": "task-103",
+        "title": "Fix High-Volume Redis Cache Eviction Bug",
+        "description": "Investigate memory spikes during bulk notification dispatches causing intermittent 502 responses.",
+        "assignee_id": "usr-4",
+        "assignee_name": "Carlos Gomez",
+        "priority": "Critical",
+        "status": "Review",
+        "progress": 90,
+        "due_date": "2026-08-15",
+        "category": "Infrastructure",
+        "created_by": "Sarah Chen",
+        "updates": [
+          {"author": "Carlos Gomez", "timestamp": "2026-08-16 09:15", "note": "PR #412 submitted with pipeline batching and LRU policy fix. Awaiting Sarah's review.", "progress": 90}
+        ]
+      },
+      {
+        "id": "task-104",
+        "title": "Automated End-to-End Test Suite for Auth & Team Role Gating",
+        "description": "Write Playwright regression tests covering manager task assignment permissions vs member update limits.",
+        "assignee_id": "usr-5",
+        "assignee_name": "Elena Rostova",
+        "priority": "Medium",
+        "status": "To do",
+        "progress": 15,
+        "due_date": "2026-08-22",
+        "category": "QA / Testing",
+        "created_by": "Sarah Chen",
+        "updates": [
+          {"author": "Elena Rostova", "timestamp": "2026-08-14 16:00", "note": "Test matrix drafted in documentation.", "progress": 15}
+        ]
+      },
+      {
+        "id": "task-105",
+        "title": "Customer Onboarding Walkthrough & Welcome Flow",
+        "description": "Build interactive tour for newly invited team members highlighting their personal task inbox and notification bell.",
+        "assignee_id": "usr-3",
+        "assignee_name": "Maya Patel",
+        "priority": "Low",
+        "status": "Done",
+        "progress": 100,
+        "due_date": "2026-08-12",
+        "category": "Product Growth",
+        "created_by": "Sarah Chen",
+        "updates": [
+          {"author": "Maya Patel", "timestamp": "2026-08-12 18:00", "note": "Shipped to production. Telemetry shows 94% completion rate.", "progress": 100}
+        ]
+      },
+      {
+        "id": "task-106",
+        "title": "Database Read Replica Sharding for Audit Logs",
+        "description": "Route heavy activity feed queries to read replicas to prevent primary lock contention.",
+        "assignee_id": "usr-4",
+        "assignee_name": "Carlos Gomez",
+        "priority": "High",
+        "status": "To do",
+        "progress": 0,
+        "due_date": "2026-08-25",
+        "category": "Database / DB Ops",
+        "created_by": "Sarah Chen",
+        "updates": []
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Template is farm-ts (FastAPI backend + Vite/React 19 frontend with Tailwind v4). CSS entry is frontend/src/index.css.",
+    "Implement full dual-mode support (Manager oversight view + Member personal update view). Provide an intuitive instant role switcher in the header for testing and seamless evaluation.",
+    "Manager role capabilities: Create new tasks, assign tasks to any member, edit priority/deadlines, delete tasks, send nudges, view team-wide analytics.",
+    "Member role capabilities: View assigned tasks, adjust progress % slider, change status (To Do -> In Progress -> Review -> Done), post progress notes with tags, acknowledge alerts.",
+    "In-app Notification Bell: Include unread badge counter, rich popover list categorized by 'Urgent', 'Overdue', and 'Status Updates', with 'Mark all read' and click-to-open task dialog.",
+    "Priority Alerts Panel: Place prominently on the Overview dashboard with tabs for Overdue, Due Soon (<24h), and Critical priority tasks.",
+    "Kanban View: 4 status columns with visual drag-or-select status changes, interactive progress bars, priority colored indicators, and quick action menus.",
+    "Task Detail Dialog: Must feature an interactive progress slider (0-100%), status dropdown, metadata cards, and chronological progress-update timeline with input for adding new notes.",
+    "Data Visualizations: Use Recharts for workload per member (stacked/bar charts) and status distribution donuts.",
+    "All interactive elements MUST have unique data-testid attributes for testing."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do NOT make generic centered layouts or simplistic flat gradients.",
+    "Maintain high density and high contrast for dark mode: solid dark backgrounds (#0B0F17, #111827) with 1px border (#1E293B / #334155).",
+    "Never apply universal 'transition: all' which breaks transforms. Use specific properties like 'transition-colors' or 'transition-transform'.",
+    "Use Sonner for toasts via toast() import from 'sonner'.",
+    "All dialogs, dropdowns, and selects must use customized Shadcn/UI primitives from @/components/ui/."
+  ]
+}

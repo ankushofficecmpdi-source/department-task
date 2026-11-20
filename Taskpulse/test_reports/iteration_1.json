@@ -1,0 +1,107 @@
+{
+  "iteration": 1,
+  "mode": "generate",
+  "summary": "All 8 acceptance criteria exercised: 13 backend pytest cases across 5 files + 8 named browser checks. Everything passed.",
+  "passed": 13,
+  "failed": 0,
+  "retest_needed": false,
+  "bugs": [],
+  "action_items": [],
+  "checks": [
+    {
+      "criterion": "Login with role-based access",
+      "name": "test_tscheck_login_role_access.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "POST /api/auth/login 200 for manager & member creds; wrong password -> 401; GET /api/auth/me 401 after logout"
+    },
+    {
+      "criterion": "Login with role-based access",
+      "name": "login-role-access-and-logout",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Wrong password shows login-error; manager & member login show correct role-badge; sign-out via account menu returns to /login without crash"
+    },
+    {
+      "criterion": "Manager assigns work",
+      "name": "manager-assigns-task",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Assign task dialog filled (title/assignee/priority/due date), submitted; task-detail-dialog opened with matching title; card appeared in kanban-column-todo"
+    },
+    {
+      "criterion": "Progress tracking and updates",
+      "name": "test_tscheck_assign_and_progress_tracking.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "PATCH /tasks/{id} progress=40 -> 200; PATCH status=review -> 200; POST /tasks/{id}/notes -> 201; GET /tasks/{id} reflects progress=40, status=review, note text after reload"
+    },
+    {
+      "criterion": "Progress tracking and updates",
+      "name": "task-progress-status-notes-persist",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Progress set to 75% via step button + Save, status set to In review, note with milestone tag posted; reload reopened dialog showing 75%/In review/note; note also visible on /activity feed"
+    },
+    {
+      "criterion": "Kanban board",
+      "name": "kanban-board-filters-and-drag",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "4 columns (todo/in_progress/review/done) rendered; search filter isolates created card; priority filter (critical) excludes a medium-priority card; assignee filter applied; dragTo moved card into kanban-column-in_progress"
+    },
+    {
+      "criterion": "Priority notifications",
+      "name": "test_tscheck_priority_notifications.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "GET /notifications returns {items,unread}; POST /notifications/read-all -> unread becomes 0; nudge creates a notification of kind=nudge for the assignee with matching task_id"
+    },
+    {
+      "criterion": "Priority notifications",
+      "name": "priority-notifications-and-alerts",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Bell opens notification-panel; clicking a notification item opened its task dialog; Mark all read zeroed notification-unread-count; Overview priority-tab-overdue/due_soon/critical each render their priority-list-* panel"
+    },
+    {
+      "criterion": "Member scoping",
+      "name": "test_tscheck_member_scoping.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "Member POST /tasks -> 403; member PATCH title on manager-created task -> 403; member GET of another member's task -> 404; member GET /tasks returns only own assignee_id rows"
+    },
+    {
+      "criterion": "Member scoping",
+      "name": "member-scoping-ui-restrictions",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Member view: no nav-link-team, no header-assign-task-button, no board-assignee-filter; task detail dialog hides task-edit-button/task-delete-button/task-nudge-button while status select and progress slider remain usable"
+    },
+    {
+      "criterion": "Manager oversight",
+      "name": "test_tscheck_manager_oversight.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "GET /team (manager) lists all 4 seeded members with stats keys active/completed/overdue/critical and tasks[]; GET /team as member -> 403; member note creates a notification visible to manager"
+    },
+    {
+      "criterion": "Manager oversight",
+      "name": "manager-oversight-team-page",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Team page lists all 4 member cards with active/completion stats; 'Assign task' on a member card preselects that member's name in task-form-assignee-select; Nudge button triggered from an open team task"
+    },
+    {
+      "criterion": "Overview dashboard",
+      "name": "overview-dashboard-renders",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "overview-greeting/overview-today, stat-* cards, status-distribution-chart donut, workload-chart bar chart and recent-activity-panel all visible; no page-level JS errors thrown"
+    }
+  ],
+  "notes": [
+    "Matrix has 8 criteria; covered with 13 artifacts (5 backend test files, 8 browser checks) since several criteria are both API- and UI-backed.",
+    "Residual tscheck-* fixture rows (tasks created by manager-assigns-task and kanban-board-filters-and-drag checks) remain in the DB by design per isolation rules; they do not touch seeded data."
+  ]
+}
